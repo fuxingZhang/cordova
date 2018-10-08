@@ -1,6 +1,50 @@
 {
     "logs": [
         {
+            "outputFile": "C:\\Users\\gisuni\\Desktop\\cordova\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\gisuni\\Desktop\\cordova\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "154,55,95",
+                        "endColumns": "63,39,58",
+                        "endOffsets": "213,90,149"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,159",
+                        "endColumns": "63,39,58",
+                        "endOffsets": "114,154,213"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "E:\\zfx\\cordova\\src\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "E:\\zfx\\cordova\\src\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "154,55,95",
+                        "endColumns": "63,39,58",
+                        "endOffsets": "213,90,149"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,159",
+                        "endColumns": "63,39,58",
+                        "endOffsets": "114,154,213"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\gisuni\\Desktop\\zfx\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
