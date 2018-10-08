@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/bundle.css">
+    <title>Hello World</title>
+</head>
+
+<body onload="window.W.style.opacity='';window.W.className='O';"><canvas id=canvas></canvas>
+    <div id=muteC>
+        <div id=mute>静音</div>
+    </div>
+    <div id=R></div>
+    <div id=W class=K style="opacity: 0;">
+        <main id=A>
+            <h1>追风</h1>
+            <div id=X><svg height=72 viewBox="0 -6 70 82" width=32>
+                    <g fill=none stroke=#fff>
+                        <path d="M32,0 L46.4,21 L32,64 L17.6,21 Z" stroke-width=3px />
+                        <path d="M17.6,21 L46.4,21 M32,0 L32,64 M32,64 Q32,80 40,82" stroke-width=1px />
+                    </g>
+                </svg></div>
+                <div>在高高的草地上</div>
+                <div>跟随鸟，追风</div>
+                <div>寻找颜色</div>
+            <p id=S>开始</p>
+            <div id=C>
+                <div>为王小聪制作</div>
+                <div>Made by 张复星</div>
+            </div>
+        </main>
+        <main id=E>
+            <div>There was a JavaScript error. Make sure you're using a recent version of Chrome, FireFox or Safari.</div>
+        </main>
+        <script>window.onerror = function (msg) { ['E', 'A', 'R', 'canvas', 'muteC'].forEach(function (key, i) { window[key].style.display = i === 0 ? 'flex' : 'none'; }); };</script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/bundle.js"></script>
+</body>
+
+</html>
