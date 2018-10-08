@@ -1,4 +1,4 @@
-./src/release-key.keystore
+src/release-key.keystore
 # Logs
 logs
 *.log
