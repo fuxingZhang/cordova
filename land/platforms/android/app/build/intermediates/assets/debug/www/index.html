@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>农村土地承包首页</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <script>
+        var base_fontsize = document.documentElement.clientWidth / 3.75;
+        base_fontsize = base_fontsize > 110 ? 110 : base_fontsize;
+        document.documentElement.style.fontSize = base_fontsize + 'px';
+    </script>
+    <script src="js/config.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="head">
+            <img src="img/top_bg.png" alt="">
+        </div>
+        <div class="con">
+            <form action="">
+                <div class="query-item">
+                    <span class="control-group">
+                        <input id="name" type="text" class="input-310" placeholder="请填写姓名">
+                    </span>
+                </div>
+                <div class="query-item">
+                    <span class="control-group">
+                        <select id="idcard_type" class="select" name="state" data-value="0">
+                            <!--<option value ="0">请选择</option>-->
+                            <option value="1">居民身份证</option>
+                            <option value="2">军官证</option>
+                            <option value="3">行政、企事业单位机构代码证或法人代码证</option>
+                            <option value="4">户口簿</option>
+                            <option value="5">护照</option>
+                            <option value="6">其他证件</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="query-item">
+
+                    <span class="control-group">
+                        <input id="idcard" type="text" class="input-310" placeholder="请填写证件号码">
+                    </span>
+                </div>
+                <div class="query-item">
+                    <span class="control-group">
+                        <input id="qzcard" type="text" class="input-310" placeholder="请填写承包经营权证代码">
+                    </span>
+                </div>
+                <div class="query-item">
+                    <span class="control-group">
+                        <input id="input_code" type="text" class="input-160" placeholder="请填写验证码">
+                    </span>
+                    <span class="code"><img id="img_code" alt=""></span>
+                </div>
+                <div class="toolBar">
+                    <a href="##" id="login" class="btn btn_orange">权证查询</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="foot">
+        <!-- <a href="##" class="link-us">联系我们</a>
+    <span>&nbsp; | &nbsp;</span> -->
+        <a href="user.html" class="user-guide">用户指南</a>
+        <p class="footnote">农业农村部农村经济体制与经营管理司
+            <br>
+            农业农村部规划设计研究院 &nbsp;&nbsp;版权所有</p>
+    </div>
+    <!--遮罩层-->
+    <div class="mask" style="display: none;"></div>
+    <!--验证成功弹出框-->
+    <div class="hint-s" id="yz_SuccessBox" style="display: none;">
+        <div class="hint-close"><img src="img/icon04.png" alt=""></div>
+        <div class="hint-title hint-title-s"><img src="img/icon02.png" alt=""> <br>验证成功！</div>
+        <div class="hint-mess">
+            系统将在1秒后自动跳转到结果页
+        </div>
+    </div>
+    <!--验证失败弹出框-->
+    <div class="hint-s" id="yz_FailBox" style="display: none;">
+        <div class="hint-close"><img src="img/icon04.png" alt=""></div>
+        <div class="hint-title hint-title-f"><img src="img/icon03.png" alt=""> <br>身份验证失败！</div>
+        <div class="hint-mess">
+            <p class="hint-warn">可能因为：</p>
+            <p class="hint-warn">１.您提供的姓名、证件类型、证件号码或权证号码有误；</p>
+            <p class="hint-warn">２.登记机关暂未注册该权证信息，详询当地农经部门；</p>
+
+        </div>
+    </div>
+    <!-- 空值判断弹出框 -->
+    <div class="hint-s" id="null_Tipbox" style="display: none;">
+        <div class="hint-close"><img src="img/icon04.png" alt=""></div>
+        <div class="hint-title hint-title-f"><img src="img/icon03.png" alt=""><br>身份验证失败！</div>
+        <div class="hint-mess">
+            <p class="hint-warn" id="null_error"></p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/index.js"></script>
+<script src="js/mobile/common.js"></script>
+<script src="js/mobile/login.js"></script>
+<script>
+    $(function () {
+        $('select.select').select();
+
+
+        $('.select').on("click", function () {
+            $(this).toggleClass('open');
+        });
+        $("body").click(function () {
+            $('.select').removeClass('open');
+        });
+
+        //弹出框
+        $('.hint-close').click(function () {
+            $(this).parent().hide();
+            $('.mask').hide();
+        })
+    });
+</script>
+
+</html>

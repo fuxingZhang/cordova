@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    11111111111
+</body>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/mobile/common.js"></script>
+<script>
+    $.ajax({
+        type: 'GET',
+        url: '/v1/api/captcha',
+        success: function (data) {
+            alert(JSON.stringify(data))
+        },
+        error: function (data) {
+            alert('error')
+        }
+    });
+    (function(){
+var init = function(){
+var updateOrientation = function(){
+        var orientation = window.orientation;
+        switch(orientation){
+            case 90:
+            case -90:
+                orientation = 'landscape'; //这里是横屏
+                break;
+            default:
+                orientation = 'portrait'; //这里是竖屏
+            break;
+        }
+        //html根据不同的旋转状态，加上不同的class，横屏加上landscape，竖屏
+        //加上portrait
+        document.body.parentNode.setAttribute('class',orientation);
+    };
+    // 每次旋转，调用这个事件。
+    window.addEventListener('orientationchange',updateOrientation,false);
+    // 事件的初始化
+    updateOrientation();
+    };
+    window.addEventListener('DOMContentLoaded',init,false);
+})();
+</script>
+</html>

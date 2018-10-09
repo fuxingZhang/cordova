@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>二级页面</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--IOS中safari允许全屏浏览-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- IOS中 Safari顶端状态条样式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!--忽略将数字变为电话号码,忽略识别email-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <script>
+        var base_fontsize = document.documentElement.clientWidth / 3.75;
+        base_fontsize = base_fontsize > 110 ? 110 : base_fontsize;
+        document.documentElement.style.fontSize = base_fontsize + 'px';
+    </script>
+    <script src="config.js"></script>
+    <style>
+        body{
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div class="head2 clear">
+        <img src="img/china_icon.png" alt="">
+        <h1>国家级农村土地承包经营权公众查询系统</h1>
+    </div>
+    <div class="con con2">
+        <div class="con2-h2 clearfix">
+            <div class="user">
+                <div class="user-pic"><img src="img/icon05.png" alt=""></div>
+                <div class="user-name">当前用户 <b id="currentUser"></b></div>
+            </div>
+            <div class="back"><a href="./index.html">清除信息并返回检索页</a></div>
+        </div>
+        <p id="qqqg" style="display: none;">确权确股</p>
+        <div class="tab s-tab">
+            <ul class="tab_ul clearfix">
+                <li class="tab_li selected">承包基本信息</li>
+                <li class="tab_li ">承包方家庭成员情况</li>
+                <li class="tab_li ">承包地块信息</li>
+                <li class="tab_li">权证信息</li>
+            </ul>
+            <div class="tab_div">
+                <!-- 承包基本信息 start -->
+                <div class="tab-div-con selected">
+                    <table class="table-done">
+                        <tbody>
+                        <tr>
+                            <td>承包经营权证代码</td>
+                            <td id="cbjyqzbm"></td>
+
+                        </tr>
+                        <tr>
+                            <td>发包方全称</td>
+                            <td id="fbfqc"></td>
+                        </tr>
+                        <tr>
+                            <td>承包方代表</td>
+                            <td id="cbfdb"></td>
+                        </tr>
+                        <tr>
+                            <td>合同代码</td>
+                            <td id="htdm"></td>
+                        </tr>
+                        <tr>
+                            <td>承包期限</td>
+                            <td id="cbqx"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 承包基本信息 end -->
+                <!-- 承包方家庭成员 start -->
+                <div class="tab-div-con ">
+                    <table class="table-net">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>姓名</th>
+                            <th>与承包方关系</th>
+                            <th>备注</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cbfjtcy">
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 承包方家庭成员 end -->
+                <!-- 承包地块信息 start -->
+                <div class="tab-div-con ">
+                    <div class="contracted-land">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>承包地确权总面积(亩)</td>
+                                <td id="qqzmjm"></td>
+                                <td>承包地总数(块)</td>
+                                <td id="cbdkzs"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="see">查看地块示意图</div>
+                    <div class="table-head">
+                        <table class="table-net">
+                            <colgroup>
+                                <col width="12%">
+                                <col width="23%">
+                                <col width="32%">
+                                <col width="10%">
+                                <col width="14%">
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>地块代码</th>
+                                <th>地块四至(东至、<br>
+                                    西至、南至、北至)</th>
+                                <th>面积 <br>(亩)</th>
+                                <th>是否 <br>基本农田</th>
+                                <th>备注</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table-body">
+                        <table class="table-net">
+                            <colgroup>
+                                <col width="12%">
+                                <col width="23%">
+                                <col width="32%">
+                                <col width="10%">
+                                <col width="14%">
+                                <col>
+                            </colgroup>
+                            <tbody id="cbdkxx_body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 承包地块信息 end -->
+                <!-- 权证信息 start -->
+                <div class="tab-div-con">
+                    <table class="table-done">
+                        <tbody>
+                        <tr>
+                            <td>权证流水号</td>
+                            <td id="qzlsh"></td>
+                        </tr>
+                         <tr>
+                            <td>发证日期</td>
+                            <td id="fzrq"></td>
+                        </tr>
+                         <tr>
+                            <td>领取人姓名</td>
+                            <td id="lqrxm"></td>
+                        </tr>
+                        <tr>
+                            <td>发证机关</td>
+                            <td id="fzjg"></td>
+                        </tr>
+                        <tr>
+                            <td>领取人证件号</td>
+                            <td id="lqrzjh"></td>
+                        </tr>
+                        <tr>
+                            <td>权证是否领取：</td>
+                            <td id="qzsflq"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 权证信息 end -->
+            </div>
+        </div>
+        <div class="import_date">该查询结果信息以汇交入库日期<span id="import_date"></span>为准</div>
+    </div>
+</div>
+<div class="foot foot2">
+    <!-- <a href="index.html" class="link-us">首&nbsp;&nbsp;页</a> -->
+    <!-- <span>&nbsp; | &nbsp;</span> -->
+    <!-- <a href="##" class="link-us">联系我们</a> -->
+    <!-- <span>&nbsp; | &nbsp;</span> -->
+    <a href="user.html" class="user-guide">用户指南</a>
+    <p class="footnote">农业农村部农村经济体制与经营管理司
+        <br>
+        农业农村部规划设计研究院 &nbsp;&nbsp;版权所有</p>
+</div>
+<!--遮罩层-->
+<div class="mask" style="display: none;"></div>
+<!--地块示意图弹出框-->
+<div class="sketch" style="display: none;">
+    <div class="sketch-title">承包地块示意图</div>
+    <div class="hint-close"><img src="img/icon04_p.png" alt=""></div>
+    <div class="map" style="overflow: auto;">
+        <img id="squirrel" src="" alt="地块示意图" width="800" style="display: none;height: auto;">
+        <canvas id="squirrelP"></canvas>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/hammer.min.js"></script>
+<script src="js/pdf.worker.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/provinces.js"></script>
+<script src="js/mobile/common.js"></script>
+<script src="js/mobile/home.js"></script>
+<script>
+    //适配横屏竖屏
+    var rotation = 0,
+        temp = 0,            //图片垂直偏移量
+        tempLine = 0,        //图片水平偏移量
+        scrollHeight = 0,
+        scrollLeft = 0;
+    compatibleScreen();
+    $(function(){
+        $(".tab_li").click(function () {
+            $(this).addClass("selected").siblings().removeClass("selected");
+            var i = $(this).index();
+            $(this).parent().next().children().eq(i).addClass("selected").siblings().removeClass("selected");
+            //承包地块信息
+            if (i == 2) {
+                // 设置地块信息的div高度
+                $(".table-body")[0].style.height = (document.body.clientHeight - $(".table-body")[0].offsetTop) + "px";
+            }
+        });
+        // 设置地图的高度
+        $(".map").height(document.body.clientHeight*0.7);
+
+        //弹出框
+        $('.hint-close').click(function(){
+            $(this).parent().hide();
+            $('.mask').hide();
+        });
+        $('.see').click(function(){
+
+            $('.sketch').show();
+            $('.mask').show();
+        });
+        //图片旋转、偏移 start
+        var hammertime = Hammer($(".map")[0], {
+            transform_always_block:true,
+            transform_min_scale:0.5,
+            drag_block_horizontal:true,
+            drag_block_vertical:true,
+            drag_min_distance:0
+        });
+
+        hammertime.get('rotate').set({ enable: true });
+        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+
+        hammertime.on('rotateend touch pan',function(e){
+            // 计算滚动条的长度
+            scrollHeight = $(".map").height() - $(".imageShowed").height();  //dom待修改
+            scrollLeft = $(".map").width() - $(".imageShowed").width();
+            //图件平移
+            imageTranslation(e, rotation, scrollHeight, scrollLeft);
+            // 图件的90deg旋转 start
+            switch(e.type){
+                case 'rotateend':
+                    rotation = rotation == 0 ? 90 : 0;
+                    break;
+            }
+            //使用CSS3 transform进行图片的变换
+            var transform = "", width = "";
+            switch (rotation) {
+                case 0:
+                    transform = "rotate("+rotation+"deg)" + " translate(-50%, -52%)";
+                    $(".map").css("height", $("body").height()*0.7 + "px");
+                    width = "3.5rem";
+                    break;
+                case 90:
+                    // transform = "rotate("+rotation+"deg)" + " translate(-42%, 66%)";
+                    transform = "rotate("+rotation+"deg)" + " translate(-40%, 76%)";
+                    // transform = "rotate("+rotation+"deg)" + " translate(36%, -58%)";
+                    width = "6rem";
+                    $(".map").css("height", $("body").width() + "px");
+                    break;
+            }
+            $(".sketch").css({
+                "webkitTransform": transform,
+                "width": width
+            });
+            // 图件的90deg旋转 end
+        });
+        // 图件的平移 start
+        function imageTranslation (e, rotation, scrollHeight, scrollLeft) {
+
+            if (rotation == 0) {
+
+                switch (e.additionalEvent) {
+                    case 'panup':   //负数
+
+                        if (temp == 0) {
+
+                            temp = e.deltaY;
+                        } else if (e.deltaY < 0 && e.deltaY >= scrollHeight && temp > scrollHeight) {
+                            temp += e.deltaY;
+                        } else {
+                            temp = scrollHeight;
+                        }
+                        temp = temp > scrollHeight ? temp : scrollHeight;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ tempLine +"px," + temp + "px)",
+                        });
+
+                        console.log(temp);
+                        break;
+                    case 'pandown': //正数
+
+                        if (temp >= 0) {
+                            temp = 0;
+                        } else if (temp < 0 && e.deltaY > 0) {
+                            temp += e.deltaY;
+                        }
+                        temp = temp < 0 ? temp : 0;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ tempLine +"px," + temp + "px)",
+                        });
+                        console.log(temp);
+                        break;
+                    case 'panleft':
+                        if (tempLine == 0) {
+
+                            tempLine = e.deltaX;
+                        } else if (e.deltaX < 0 && e.deltaX >= scrollLeft && tempLine > scrollLeft) {
+                            tempLine += e.deltaX;
+                        } else {
+                            tempLine = scrollLeft;
+                        }
+                        tempLine = tempLine > scrollLeft ? tempLine : scrollLeft;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ tempLine +"px, "+ temp +"px)",
+                        });
+
+                        console.log(tempLine);
+                        break;
+                    case 'panright':
+                        if (tempLine >= 0) {
+                            tempLine = 0;
+                        } else if (tempLine < 0 && e.deltaX > 0) {
+                            tempLine += e.deltaX;
+                        }
+                        tempLine = tempLine < 0 ? tempLine : 0;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ tempLine +"px, "+ temp +"px)",
+                        });
+                        console.log(tempLine);
+
+                        break;
+                }
+            } else if (rotation == 90) {
+                var immediate = scrollHeight;
+                scrollHeight = scrollLeft;
+                scrollLeft = immediate;
+                switch (e.additionalEvent) {
+                    case 'panup':   //负数
+                        if (temp == 0) {
+
+                            temp = e.deltaY;
+                        } else if (e.deltaY < 0 && e.deltaY >= scrollHeight && temp > scrollHeight) {
+                            temp += e.deltaY;
+                        } else {
+                            temp = scrollHeight;
+                        }
+                        temp = temp > scrollHeight ? temp : scrollHeight;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ temp +"px," + tempLine + "px)",
+                        });
+
+                        console.log(temp);
+                        break;
+                    case 'pandown': //正数
+
+                        if (temp >= 0) {
+                            temp = 0;
+                        } else if (temp < 0 && e.deltaY > 0) {
+                            temp += e.deltaY;
+                        }
+                        temp = temp < 0 ? temp : 0;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ temp +"px," + tempLine + "px)",
+                        });
+                        console.log(temp);
+                        break;
+                    case 'panleft':
+                        // alert('panleft'+tempLine)              0     -224
+                        // alert("x: "+e.deltaX)                  -28   -23
+                        // alert("scrollLeft:"+scrollLeft)        -224  -224
+                        if (tempLine >= 0) {
+                            tempLine = 0;
+                        } else if (tempLine < 0 && e.deltaX < 0) {
+                            tempLine -= e.deltaX;
+                        }
+                        tempLine = tempLine < 0 ? tempLine : 0;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ temp +"px, "+ tempLine +"px)",
+                        });
+                        console.log(tempLine);
+
+                        break;
+                    case 'panright':
+                        if (tempLine == 0) {
+
+                            tempLine = - e.deltaX;
+                        } else if (e.deltaX > 0 && e.deltaX >= scrollLeft && tempLine > scrollLeft) {
+                            tempLine -= e.deltaX;
+                        } else {
+                            tempLine = scrollLeft;
+                        }
+                        tempLine = tempLine > scrollLeft ? tempLine : scrollLeft;
+                        $(".imageShowed").css({
+                            "transform":  "translate("+ temp +"px, "+ tempLine +"px)",
+                        });
+
+                        console.log(tempLine);
+                        break;
+                }
+            }
+        }
+        // 图件的平移 end
+        //图片旋转、偏移 end
+    });
+</script>
