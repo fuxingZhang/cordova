@@ -1,2 +1,2 @@
 # cordova
-a cordova app
+cordova apps
